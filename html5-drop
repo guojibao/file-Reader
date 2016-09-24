@@ -1,0 +1,32 @@
+//dragover dragend drop
+//html
+<div id="holder"></div>
+//style
+#holder {
+   border:10px dashed #ccc;
+   width:300px;
+   min-height:300px;
+   margin:20px auto;
+}
+#holder.hover {
+  border: 10px dashed #0c0;
+}
+//js
+
+if('draggable' in document.createElement('span')) {
+   var holder = document.getElementById('holder');
+   holder.ondrageover = function (){
+      this.className = 'hover';
+      return false;
+   };
+   holder.ondragend = function (){
+      this.className = '';
+      return false;
+   };
+   holder.ondrop = function (event){
+      event.preventDefault();
+      this.classnanamme = '';
+      var  files = event.dataTransfer.files;
+      //do something with files
+   }
+}
